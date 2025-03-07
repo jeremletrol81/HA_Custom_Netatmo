@@ -1,19 +1,23 @@
 # HA_Custom_Netatmo
 Integration Netatmo for HomeAssistant with NIS and NACamDoorTag sensors.
 
+Because I use this integration and it works on my end, I will not provide support if there are any issues.
+
 Thanks to [@cgtobi](https://github.com/cgtobi) for the [Netatmo integration](https://www.home-assistant.io/integrations/netatmo/) and [pyatmo](https://github.com/cgtobi/pyatmo). 
 
 ## Why was this component created?
 I needed the opening sensors for my heating (Versatile)
 
 ## How was this component created?
-I'm using the main dev HA git repository.
+I'm using the main dev HA git repository: [Set up development environment](https://developers.home-assistant.io/docs/development_environment)
 
 Sometimes, the dev env is not valid with the last release of HA.
 
 So, I download a copy for the last release and I merge my custom files.
 
-And, I upload the my custom component for the release.
+And, I upload my custom component for the release.
+
+Integration tested as described here, with new unit tests: [Testing your code](https://developers.home-assistant.io/docs/development_testing)
 
 ## How install this custom component ?
 ### First install:

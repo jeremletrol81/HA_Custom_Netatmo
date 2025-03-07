@@ -46,7 +46,7 @@ Binary Sensors:
 2. monitoring: On/Off 
 3. sound: True if the siren souding (alert) (webhook: event home_alarm)  
 
-Diagnostic Sensors
+Diagnostic Sensors:
 1. Battery
 2. Radio
 3. Reachable
@@ -61,7 +61,7 @@ Binary Sensors:
 3. motion: True if webhook tag_big_move is received
 4. vibration: True if webhook tag_small_move is received  
 
-Diagnostic Sensors
+Diagnostic Sensors:
 1. Battery
 2. Radio
 3. Reachable

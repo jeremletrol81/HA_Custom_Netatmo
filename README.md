@@ -1,4 +1,4 @@
-# HA_Custom_Netatmo
+# Home Assistant Custom Netatmo Integration
 Integration Netatmo for HomeAssistant with NIS and NACamDoorTag sensors.
 
 Because I use this integration and it works on my end, I will not provide support if there are any issues.

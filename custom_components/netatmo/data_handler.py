@@ -238,7 +238,7 @@ class NetatmoDataHandler:
                 **self.publisher[signal_name].kwargs
             )
 
-        except (pyatmo.NoDevice, pyatmo.ApiError) as err:
+        except (pyatmo.NoDeviceError, pyatmo.ApiError) as err:
             _LOGGER.debug(err)
             has_error = True
 
@@ -438,19 +438,20 @@ class NetatmoDataHandler:
         self, home: pyatmo.Home, signal_home: str
     ) -> None:
         """Set up climate schedule per home."""
-        for room in home.rooms.values():
-            if NetatmoDeviceCategory.climate in room.features:
-                self.hass.data[DOMAIN][DATA_SCHEDULES][home.entity_id] = (
-                    self.account.homes[home.entity_id].schedules
-                )
+        if NetatmoDeviceCategory.climate in [
+            next(iter(x)) for x in [room.features for room in home.rooms.values()] if x
+        ]:
+            self.hass.data[DOMAIN][DATA_SCHEDULES][home.entity_id] = self.account.homes[
+                home.entity_id
+            ].schedules
 
-                async_dispatcher_send(
-                    self.hass,
-                    NETATMO_CREATE_SELECT,
-                    NetatmoHome(
-                        self,
-                        home,
-                        home.entity_id,
-                        signal_home,
-                    ),
-                )
+            async_dispatcher_send(
+                self.hass,
+                NETATMO_CREATE_SELECT,
+                NetatmoHome(
+                    self,
+                    home,
+                    home.entity_id,
+                    signal_home,
+                ),
+            )
